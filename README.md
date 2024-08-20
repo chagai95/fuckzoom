@@ -21,3 +21,6 @@
         servers:
           - url: "http://172.17.0.1:8889"  # Docker host IP
  ```
+
+ Here is the link to the prompts:
+ https://claude.ai/chat/57932b5f-f999-4784-8ea9-b86539741a84
