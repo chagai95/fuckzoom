@@ -45,36 +45,77 @@
             margin: 20px auto;
             max-width: 600px;
         }
+        .comparison {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .company {
+            width: 45%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .zoom {
+            background-color: #ff4444;
+        }
+        .fairmeeting {
+            background-color: #44ff44;
+        }
+        .zoom-logo {
+            width: 100px;
+            height: 100px;
+            animation: spin 5s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <h1>🖕 FuckZoom.lol 🖕</h1>
-    <h2>Because Your Sanity Matters More Than Your Background</h2>
+    <h2>Because Your Privacy and Wallet Matter</h2>
     
-    <p>Are you tired of:</p>
-    <div class="reasons">
-        <ul style="text-align: left;">
-            <li>Pretending you're not wearing pajama pants?</li>
-            <li>Awkward "You're on mute" moments?</li>
-            <li>That one coworker who can't figure out how to share their screen?</li>
-            <li>Virtual backgrounds that make you look like a floating head?</li>
-            <li>Accidentally leaving your camera on while picking your nose?</li>
-        </ul>
+    <div class="zoom-logo">
+        <img src="/api/placeholder/100/100" alt="Zoom logo spinning out of control" style="transform: rotate(180deg);">
     </div>
     
-    <p>Well, fuck Zoom! It's time for a change!</p>
+    <p>Why suffer with Zoom when you can have a fair meeting?</p>
     
-    <a href="https://fairmeeting.net" class="button">Try FairMeeting Instead!</a>
+    <div class="comparison">
+        <div class="company zoom">
+            <h3>Zoom: The Big Brother of Video Calls</h3>
+            <ul>
+                <li>Won the "Big Brother Award 2022" (Yay?)</li>
+                <li>Security? What's that?</li>
+                <li>Innovation? More like "InnoVacation"</li>
+                <li>Pricing that makes your wallet cry</li>
+                <li>Features? Here's another virtual background!</li>
+            </ul>
+        </div>
+        <div class="company fairmeeting">
+            <h3>FairMeeting: The Cool Kid on the Block</h3>
+            <ul>
+                <li>Actually cares about your privacy</li>
+                <li>Secure enough to make hackers give up</li>
+                <li>Constantly innovating (for real)</li>
+                <li>Pricing that won't require a second mortgage</li>
+                <li>Features you'll actually use</li>
+            </ul>
+        </div>
+    </div>
+    
+    <a href="https://fairmeeting.net" class="button">Join the Fair Side of Meetings!</a>
     
     <p style="font-size: 0.8em; margin-top: 50px;">
-        Disclaimer: We're not actually affiliated with FairMeeting. We just think they're neat.<br>
-        Also, please don't sue us, Zoom. We're just joking. Sort of.
+        Disclaimer: We're not affiliated with FairMeeting or Zoom. We just really, really prefer one over the other.<br>
+        Zoom, if you're reading this, maybe try winning some awards that don't involve invading privacy?
     </p>
     
     <script>
         document.querySelector('.button').addEventListener('click', function(e) {
             e.preventDefault();
-            alert("Congrats! You're one step closer to meeting sanity. Redirecting you to FairMeeting in 3... 2... 1...");
+            alert("Congratulations! You've chosen fairness over Big Brother. Redirecting you to FairMeeting in 3... 2... 1...");
             setTimeout(function() {
                 window.location.href = 'https://fairmeeting.net';
             }, 3000);
