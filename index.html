@@ -3,123 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FuckZoom.lol - The Best Damn Alternative to Zoom</title>
+    <title>FuckZoom.lol - The Fun Alternative to Zoom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Comic Sans MS', cursive;
-            background-color: #ff69b4;
-            color: #000;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
             text-align: center;
             padding: 20px;
+            margin: 0;
+            line-height: 1.6;
         }
         h1 {
-            font-size: 3em;
-            text-shadow: 2px 2px #fff;
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #34495e;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .button {
-            background-color: #00ff00;
+            background-color: #3498db;
             border: none;
-            color: #000;
+            color: white;
             padding: 15px 32px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 10px 5px;
             cursor: pointer;
             border-radius: 50px;
-            box-shadow: 0 9px #999;
+            transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #3e8e41;
-        }
-        .button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-        .reasons {
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
+            background-color: #2980b9;
         }
         .comparison {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
             margin: 20px 0;
         }
         .company {
-            width: 45%;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
         .zoom {
-            background-color: #ff4444;
+            background-color: #ffcccb;
         }
         .fairmeeting {
-            background-color: #44ff44;
+            background-color: #90ee90;
         }
         .zoom-logo {
             width: 100px;
             height: 100px;
-            animation: spin 5s linear infinite;
+            animation: spinAndShrink 5s linear infinite;
             margin: 20px auto;
         }
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
+        @keyframes spinAndShrink {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(0.5); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        #zoomKiller {
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        #privacyMeter {
+            width: 100%;
+            height: 30px;
+            background-color: #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        #privacyBar {
+            width: 0%;
+            height: 100%;
+            background-color: #2ecc71;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            transition: width 0.5s ease-in-out;
+        }
+        @media (min-width: 768px) {
+            .comparison {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .company {
+                width: 48%;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>🖕 FuckZoom.lol 🖕</h1>
-    <h2>Because Your Privacy and Wallet Matter</h2>
-    
-    <div class="zoom-logo">
-        <img src="/api/placeholder/100/100" alt="Zoom logo spinning out of control" style="transform: rotate(180deg);">
-    </div>
-    
-    <p>Why suffer with Zoom when you can have a fair meeting?</p>
-    
-    <div class="comparison">
-        <div class="company zoom">
-            <h3>Zoom: The Big Brother of Video Calls</h3>
-            <ul>
-                <li>Won the "Big Brother Award 2022" (Yay?)</li>
-                <li>Security? What's that?</li>
-                <li>Innovation? More like "InnoVacation"</li>
-                <li>Pricing that makes your wallet cry</li>
-                <li>Features? Here's another virtual background!</li>
-            </ul>
+    <div class="container">
+        <h1>🖕 FuckZoom.lol 🖕</h1>
+        <h2>Your Privacy Matters!</h2>
+        
+        <div class="zoom-logo">
+            <img src="zoom-logo.png" alt="Zoom logo shrinking and spinning" style="width:100%; height:100%;">
         </div>
-        <div class="company fairmeeting">
-            <h3>FairMeeting: The Cool Kid on the Block</h3>
-            <ul>
-                <li>Actually cares about your privacy</li>
-                <li>Secure enough to make hackers give up</li>
-                <li>Constantly innovating (for real)</li>
-                <li>Pricing that won't require a second mortgage</li>
-                <li>Features you'll actually use</li>
-            </ul>
+        
+        <p>Why suffer with Zoom when you can have a fair meeting?</p>
+        
+        <button id="zoomKiller" class="button">🎯 Zap Zoom! 💥</button>
+        <p>Zoom Zaps: <span id="zapCount">0</span></p>
+        
+        <div class="comparison">
+            <div class="company zoom">
+                <h3>Zoom: The Nosy Neighbor</h3>
+                <ul>
+                    <li>"Big Brother Award 2022" Winner</li>
+                    <li>Security optional</li>
+                    <li>Innovation? What's that?</li>
+                    <li>Wallet-draining prices</li>
+                    <li>Useless feature overload</li>
+                </ul>
+            </div>
+            <div class="company fairmeeting">
+                <h3>FairMeeting: The Privacy Champion</h3>
+                <ul>
+                    <li>Your data stays yours</li>
+                    <li>Fort Knox-level security</li>
+                    <li>Actually useful features</li>
+                    <li>Wallet-friendly pricing</li>
+                    <li>Open-source goodness</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3>Privacy-O-Meter</h3>
+        <div id="privacyMeter">
+            <div id="privacyBar">0% Private</div>
+        </div>
+        
+        <button id="learnMore" class="button">Learn More About FairMeeting</button>
+        <button id="tryJitsi" class="button">Try Jitsi Meet</button>
+        
+        <div id="infoBox" style="display:none; margin-top: 20px; padding: 15px; background-color: #e8f4f8; border-radius: 10px;">
+            <p>FairMeeting is powered by Jitsi, an open-source video conferencing platform. It offers secure, high-quality video conferences that respect your privacy.</p>
         </div>
     </div>
-    
-    <a href="https://fairmeeting.net" class="button">Join the Fair Side of Meetings!</a>
-    
-    <p style="font-size: 0.8em; margin-top: 50px;">
-        Disclaimer: We're not affiliated with FairMeeting or Zoom. We just really, really prefer one over the other.<br>
-        Zoom, if you're reading this, maybe try winning some awards that don't involve invading privacy?
-    </p>
     
     <script>
-        document.querySelector('.button').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert("Congratulations! You've chosen fairness over Big Brother. Redirecting you to FairMeeting in 3... 2... 1...");
-            setTimeout(function() {
-                window.location.href = 'https://fairmeeting.net';
-            }, 3000);
+        let zapCount = 0;
+        document.getElementById('zoomKiller').addEventListener('click', function() {
+            zapCount++;
+            document.getElementById('zapCount').textContent = zapCount;
+            this.textContent = '💥'.repeat(Math.min(zapCount, 5)) + ' Zoom Zapped! ' + '💥'.repeat(Math.min(zapCount, 5));
+            updatePrivacyMeter();
         });
+
+        document.getElementById('learnMore').addEventListener('click', function() {
+            document.getElementById('infoBox').style.display = 'block';
+        });
+
+        document.getElementById('tryJitsi').addEventListener('click', function() {
+            window.location.href = 'https://meet.jit.si/';
+        });
+
+        function updatePrivacyMeter() {
+            let privacy = Math.min(zapCount * 10, 100);
+            document.getElementById('privacyBar').style.width = privacy + '%';
+            document.getElementById('privacyBar').textContent = privacy + '% Private';
+        }
     </script>
 </body>
 </html>
